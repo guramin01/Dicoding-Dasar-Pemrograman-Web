@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <style>
+       .container {
+           display: flex;
+
+           /*untuk mengubah arah flex yang awalnya horizontal*/
+           /*nilai flex-direction*/
+           /*row (default)*/
+           /*row-verse(urutannya terbaik)*/
+           /*column(secara vertikal)*/
+           /*column-verse(membalik urutan)*/
+            flex-direction: row-reverse;
+
+           /* Properti lainnya */
+           width: 800px;
+           height: 150px;
+           background-color: #11C5C6;
+           border: 2px solid black;
+           padding: 20px;
+           border-radius: 10px;
+           margin: 0 auto;
+       }
+       .box {
+           flex-grow: 1;
+ 
+           /* properti lainnya */
+           background-color: #FBDD1C;
+           margin: 5px;
+           border: 2px solid black;
+           border-radius: 10px;
+       }
+       .first {
+           flex-grow: 1;
+       }
+       .second {
+           flex-grow: 2;
+       }
+ 
+       .third {
+           flex-grow: 3;
+       }
+   </style>
+</head>
+<body>
+<div class="container">
+   <div class="box first"></div>
+   <div class="box first"></div>
+   <div class="box second"></div>   
+   <div class="box second"></div>
+   <div class="box third"></div>
+
+</div>
+</body>
+</html>
