@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Latihan Web Storage</title>
+</head>
+<style>
+	.center{
+		text-align: center;
+		max-width: 200px;
+		border: 5px solid red;
+		margin:0 auto;
+	}
+</style>
+<body>
+<div class="center">
+		
+	<p>sudah di klik <span id="count"></span> kali</p>
+	<button id="button">klik!</button>
+	<button id="clear">reset</button>
+</div>
+<script>
+	const cacheKey = `nomor`;
+	const klik = document.querySelector(`#button`);
+	const tampil = document.querySelector(`#count`);
+	const kosongkan = document.querySelector(`#clear`);
+	//check browser support tidak
+	if (typeof(Storage) !== `undefined`) {
+		//check data storage  sessionStorage tersedia atau tidak 
+		if (!localStorage.getItem(cacheKey)) {
+			//jika belum maka akan di setting ke 0
+			localStorage.setItem(cacheKey, 0);
+		}
+
+		//proses penyimpanan ke storage
+
+			tampil.innerText = localStorage.getItem(cacheKey);
+
+			klik.addEventListener(`click`, function(e){
+				let hitung = localStorage.getItem(cacheKey);
+				hitung++;
+				console.log(hitung);
+
+				localStorage.setItem(cacheKey, hitung);
+
+				tampil.innerText= localStorage.getItem(cacheKey);
+
+			});
+
+			kosongkan.addEventListener(`click`, function(e){
+				localStorage.removeItem(cacheKey);
+				localStorage.setItem(cacheKey, 0);
+
+				tampil.innerText= localStorage.getItem(cacheKey);
+
+			});
+
+	}else{
+		//alert ketika browser tidak mendukung 
+		alert(`Browser anda tidak mendukung storage web`);
+	}
+
+
+
+
+
+</script>
+</body>
+</html>
